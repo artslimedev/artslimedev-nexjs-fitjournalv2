@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@components/*": ["components/*"],
+      "@lib/*": ["pages/api/auth/lib/*"],
+      "@public/*": ["public/*"]
     }
   }
 }
