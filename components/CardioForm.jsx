@@ -16,7 +16,7 @@ const CardioForm = () => {
             <input
               type="text"
               placeholder="Location"
-              name="location"
+              name="locations"
               className="p-2 input input-bordered w-full mb-2.5 sm:mx-2 sm:w-fit basis-3/5"
             />
 
