@@ -46,6 +46,7 @@ const LineChart = () => {
         title: {
           display: true,
           text: "Line Chart",
+          fullsize: true,
         },
       },
       scales: {
@@ -61,6 +62,9 @@ const LineChart = () => {
       },
       maintainAspectRatio: false,
       responsive: true,
+      layout: {
+        padding: 30,
+      },
     });
   });
 
@@ -93,12 +97,8 @@ const LineChart = () => {
 
   return (
     <>
-      <div className=" relative sm:flex flex-col col-span-6 p-5 text-lg bg-white rounded-lg">
-        <Line
-          data={chartData}
-          options={chartOptions}
-          className="min-w-[460px]"
-        ></Line>
+      <div className="relative md:flex flex-col col-span-6 p-5 mb-3 text-lg bg-white rounded-lg items-center justify-center">
+        <Line data={chartData} options={chartOptions} className=""></Line>
       </div>
     </>
   );

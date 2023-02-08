@@ -7,11 +7,12 @@ const CardioEntries = () => {
       <h1>Entries</h1>
       <div className="p-4">
         <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-          <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
-            <p>Name</p>
-            <p className="sm:text-left text-right">Email</p>
-            <p className="hidden md:grid">Last Order</p>
-            <p className="hidden sm:grid">Method</p>
+          <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
+            <p>Date</p>
+            <p className="sm:text-left text-right">Location</p>
+            <p className="hidden md:grid">Sport</p>
+            <p className="hidden sm:grid">Time</p>
+            <p className="hidden sm:grid">Distance</p>
           </div>
         </div>
       </div>
@@ -19,7 +20,7 @@ const CardioEntries = () => {
         {data.map((order, id) => (
           <li
             key={id}
-            className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
+            className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
           >
             <div>
               <p className="pl-4">{order.name.first + " " + order.name.last}</p>
@@ -28,6 +29,11 @@ const CardioEntries = () => {
               {order.name.first}@gmail.com
             </p>
             <p className="hidden md:flex">{order.date}</p>
+            <div>
+              <p className="sm:flex hidden justify-between items-center">
+                {order.method}
+              </p>
+            </div>
             <div>
               <p className="sm:flex hidden justify-between items-center">
                 {order.method}

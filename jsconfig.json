@@ -4,7 +4,7 @@
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["components/*"],
-      "@lib/*": ["pages/api/auth/lib/*"],
+      "@lib/*": ["pages/api/auth/lib/*", "lib/*"],
       "@public/*": ["public/*"]
     }
   }

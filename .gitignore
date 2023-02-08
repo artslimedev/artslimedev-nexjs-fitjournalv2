@@ -31,3 +31,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# mongodb temp things
+/models/
+/pages/api/cardio
+/utils/
