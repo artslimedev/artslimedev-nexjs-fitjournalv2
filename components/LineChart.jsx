@@ -21,52 +21,55 @@ ChartJS.register(
   Tooltip
 );
 
-const LineChart = () => {
-  const [chartData, setChartData] = useState({
-    datasets: [],
-  });
 
+const defaultOptions = {
+  plugins: {
+    title: {
+      display: true,
+      text: "Line Chart",
+      fullsize: true,
+    },
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      min: 0,
+      max: 10,
+    },
+  },
+  maintainAspectRatio: false,
+  responsive: true,
+  layout: {
+    padding: 30,
+  },
+};
+
+const defaultChartData = {
+  labels: ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"],
+  datasets: [
+    {
+      label: "Sales of the week",
+      data: [6, 3, 9, 5, 2.3, 7],
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      borderColor: "rgb(255, 99, 132)",
+      tension: 0.1,
+    },
+  ],
+};
+
+
+const LineChart = () => {
+  const [chartData, setChartData] = useState({datasets: []});
   const [chartOptions, setChartOptions] = useState({});
 
   useEffect(() => {
-    setChartData({
-      labels: ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"],
-      datasets: [
-        {
-          label: "Sales of the week",
-          data: [6, 3, 9, 5, 2.3, 7],
-          backgroundColor: "rgba(255, 99, 132, 0.5)",
-          borderColor: "rgb(255, 99, 132)",
-          tension: 0.1,
-        },
-      ],
-    });
-    setChartOptions({
-      plugins: {
-        title: {
-          display: true,
-          text: "Line Chart",
-          fullsize: true,
-        },
-      },
-      scales: {
-        x: {
-          grid: {
-            display: false,
-          },
-        },
-        y: {
-          min: 0,
-          max: 10,
-        },
-      },
-      maintainAspectRatio: false,
-      responsive: true,
-      layout: {
-        padding: 30,
-      },
-    });
-  });
+    setChartData(defaultChartData);
+    setChartOptions(defaultOptions);
+  }, []);
 
   // const data = {
   //     title: 'Line Chart',
