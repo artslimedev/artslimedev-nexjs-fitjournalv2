@@ -99,11 +99,11 @@ const LineChart = () => {
   // }
 
   return (
-    <>
-      <div className="relative md:flex flex-col col-span-6 p-5 mb-3 text-lg bg-white rounded-lg items-center justify-center">
-        <Line data={chartData} options={chartOptions} className=""></Line>
-      </div>
-    </>
+      <>
+        <div className="relative w-full col-span-6 p-5 mb-3 text-lg bg-white rounded-lg items-center justify-center">
+          <Line data={chartData} options={chartOptions} className=""></Line>
+        </div>
+      </>
   );
 };
 
