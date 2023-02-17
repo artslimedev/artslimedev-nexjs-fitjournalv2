@@ -48,11 +48,11 @@ const defaultOptions = {
 };
 
 const defaultChartData = {
-  labels: ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"],
+  labels: ["", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"],
   datasets: [
     {
       label: "Sales of the week",
-      data: [6, 3, 9, 5, 2.3, 7],
+      data: [null, 6, 3, 9, 5, 2.3, 7],
       backgroundColor: "rgba(255, 99, 132, 0.5)",
       borderColor: "rgb(255, 99, 132)",
       tension: 0.1,
@@ -98,7 +98,7 @@ const LineChart = () => {
 
   return (
     <>
-      <div className="relative w-full min-w-full min-h-[350px] col-span-6 max-h-[350px] sm:min-h-[542px] sm:max-h-full sm:p-5 mb-3 text-lg bg-white rounded-lg items-center justify-center">
+      <div className="bg-white col-span-5 lg:col-span-4 min-h-[350px] sm:min-h-[542px] sm:max-h-full sm:p-5 rounded-lg shadow h-full w-full">
         <Line data={chartData} options={chartOptions} className=""></Line>
       </div>
     </>

@@ -1,18 +1,16 @@
 import Head from "@/app/head";
-import Image from "next/image";
 import { Tab } from "@headlessui/react";
 
 import Header from "@/components/Header";
-import Cards from "@/components/Cards";
 import Sidebar from "@/components/Sidebar";
 import Stats from "@/components/Stats";
-import LineChart2 from "@/components/LineChart2";
-import CardioForm from "@/components/CardioForm";
-import CardioEntries3 from "@/components/CardioEntries3";
-import StrengthForm from "@/components/StrengthForm";
-import StrengthEntries from "@/components/StrengthEntries";
-import StrengthEntryCard from "@/components/StrengthEntryCard";
-import CardioEntryCard from "@/components/CardioEntryCard";
+import LineChart from "@/components/LineChart";
+import CardioForm from "@/components/Cardio/CardioForm";
+import CardioEntries from "@/components/Cardio/CardioEntries";
+import CardioEntryCard from "@/components/Cardio/CardioEntryCard";
+import StrengthForm from "@/components/Strength/StrengthForm";
+import StrengthEntries from "@/components/Strength/StrengthEntries";
+import StrengthEntryCard from "@/components/Strength/StrengthEntryCard";
 
 export default function Home() {
   return (
@@ -49,19 +47,19 @@ export default function Home() {
               <Tab.Panels className={" mt-6"}>
                 <Tab.Panel>
                   <div className="w-full items-center md:grid md:grid-cols-5 ml-3 pb-8 pr-8 gap-x-10">
-                    <LineChart2 />
+                    <LineChart />
                     <Stats />
                   </div>
                   <div className="bg-white border rounded-lg shadow pt-3">
                     <CardioForm />
-                    <CardioEntries3 />
+                    <CardioEntries />
                   </div>
                   <CardioEntryCard />
                 </Tab.Panel>
 
                 <Tab.Panel>
                   <div className="w-full items-center sm:grid sm:grid-cols-5 ml-3 pb-8 pr-8 gap-x-10">
-                    <LineChart2 />
+                    <LineChart />
                     <Stats />
                   </div>
                   <div className="bg-white border rounded-lg shadow pt-3">

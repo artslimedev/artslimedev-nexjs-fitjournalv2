@@ -1,10 +1,9 @@
 import React from "react";
-import { data } from "../data/data";
+import { data } from "@/data/data";
 
 const CardioEntries = () => {
   return (
-    <div className="w-full col-span-1 relative lg:h-[70vh] h-[50vh] m-auto p-4 border rounded-lg bg-white overflow-scroll">
-      <h1>Entries</h1>
+    <div className="hidden sm:block w-full col-span-1 relative lg:h-[70vh] h-[50vh] m-auto p-4 overflow-scroll">
       <div className="p-4">
         <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
           <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
