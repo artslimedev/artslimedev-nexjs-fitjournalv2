@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import Header from "@/components/Header";
-import Cards from "@/components/Cards";
 import Container from "@/components/Container";
 import Sidebar from "@/components/Sidebar";
 

@@ -4,7 +4,7 @@ const CardsFlex = () => {
   return (
     <>
       <div className="hidden lg:flex md:flex-col justify-center items-center mx-5 mt-6 md:mt-0 w-full md:space-y-8 h-full">
-        <div className="flex flex-col justify-center items-center border p-4 rounded-lg min-w-[150px] bg-white">
+        <div className="stats flex flex-col justify-center items-center border p-4 rounded-lg min-w-[150px] bg-white">
           <div className="flex flex-col pb-4 items-center">
             <p className="text-2xl font-bold">01:33:19</p>
             <p className="text-gray-600">Fastest Time</p>
