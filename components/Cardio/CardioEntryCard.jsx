@@ -32,7 +32,7 @@ const CardioEntryCard = () => {
                 {workout.cardio.Distance} {workout.cardio.Unit}
               </div>
               <div className="col-span-2 items-center justify-center ml-1">
-                <p className="text-lg font-bold">Location</p>
+                <p className="text-lg font-bold">Time</p>
                 <p className="text-xl">{workout.cardio.Time}</p>
               </div>
 
