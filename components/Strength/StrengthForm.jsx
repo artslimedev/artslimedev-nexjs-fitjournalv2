@@ -10,19 +10,27 @@ const StrengthForm = () => {
           id=""
           className="input input-bordered w-full mb-2.5 md:mx-2 md:grow-0 md:w-fit"
         />
+        <div className="flex w-full md:w-fit">
+          <input
+            type="text"
+            placeholder="Location"
+            name="locations"
+            className="input input-bordered w-full mb-2.5 md:mx-2 sm:w-fit basis-3/5"
+          />
 
-        <select
-          name="sport"
-          className="input input-bordered w-full mb-2.5 md:mx-2 md:grow-0 md:w-fit"
-          defaultValue={"default"}
-          required
-        >
-          <option disabled value="default">
-            Equipment
-          </option>
-          <option>Machine</option>
-          <option>Weights</option>
-        </select>
+          <select
+            name="sport"
+            className="input input-bordered w-full mb-2.5 md:mx-2 md:grow-0 md:w-fit"
+            defaultValue={"default"}
+            required
+          >
+            <option disabled value="default">
+              Equipment
+            </option>
+            <option>Machine</option>
+            <option>Weights</option>
+          </select>
+        </div>
 
         <select
           name="sport"

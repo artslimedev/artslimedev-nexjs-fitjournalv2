@@ -1,5 +1,5 @@
 import React from "react";
-import { data } from "@/data/data";
+import { workouts } from "@/data/workoutsMock";
 
 const CardioEntries = () => {
   return (
@@ -16,26 +16,26 @@ const CardioEntries = () => {
         </div>
       </div>
       <ul>
-        {data.map((order, id) => (
+        {workouts.map((workout, id) => (
           <li
             key={id}
             className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
           >
             <div>
-              <p className="pl-4">{order.name.first + " " + order.name.last}</p>
+              <p className="pl-4">{workout.cardio.Date}</p>
             </div>
             <p className="text-gray-600 sm:text-left text-right">
-              {order.name.first}@gmail.com
+              {workout.cardio.Location}
             </p>
-            <p className="hidden md:flex">{order.date}</p>
+            <p className="hidden md:flex">{workout.cardio.Sport}</p>
             <div>
               <p className="sm:flex hidden justify-between items-center">
-                {order.method}
+                {workout.cardio.Time}
               </p>
             </div>
             <div>
               <p className="sm:flex hidden justify-between items-center">
-                {order.method}
+                {workout.cardio.Distance} {workout.cardio.Unit}
               </p>
             </div>
           </li>

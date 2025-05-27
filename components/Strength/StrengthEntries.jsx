@@ -1,5 +1,6 @@
 import React from "react";
 import { data } from "@/data/data";
+import { workouts } from "@/data/workoutsMock";
 
 const StrengthEntries = () => {
   return (
@@ -7,8 +8,9 @@ const StrengthEntries = () => {
       <div className="hidden sm:block w-full col-span-1 relative lg:h-[70vh] h-[50vh] m-auto p-4 rounded-lg bg-white overflow-scroll">
         <div className="p-4">
           <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
-            <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
+            <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
               <p>Date</p>
+              <p>Location</p>
               <p className="sm:text-left text-right">Equipment</p>
               <p className="hidden md:grid">Muscle</p>
               <p className="hidden sm:grid">Weight</p>
@@ -16,23 +18,25 @@ const StrengthEntries = () => {
           </div>
         </div>
         <ul>
-          {data.map((order, id) => (
+          {workouts.map((workout, id) => (
             <li
               key={id}
-              className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
+              className="bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer"
             >
               <div>
-                <p className="pl-4">
-                  {order.name.first + " " + order.name.last}
-                </p>
+                <p className="pl-4">{workout.strength.Date}</p>
               </div>
               <p className="text-gray-600 sm:text-left text-right">
-                {order.name.first}@gmail.com
+                {workout.cardio.Location}
               </p>
-              <p className="hidden md:flex">{order.date}</p>
+              <p className="text-gray-600 sm:text-left text-right">
+                {workout.strength.Equipment}
+              </p>
+              <p className="hidden md:flex">{workout.strength.Muscle}</p>
               <div>
                 <p className="sm:flex hidden justify-between items-center">
-                  {order.method}
+                  {workout.strength.Weight}
+                  {workout.strength.Unit}
                 </p>
               </div>
             </li>
