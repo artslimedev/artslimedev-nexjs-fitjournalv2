@@ -29,7 +29,7 @@ export default function Home() {
         <TabPanels>
           <TabPanel>
             <Suspense fallback={<div>Loading...</div>}>
-              <div className="w-full items-center md:grid md:grid-cols-5 pb-8 pr-8 gap-x-10">
+              <div className="w-full items-center md:grid md:grid-cols-5 pb-8 gap-x-10">
                 <LineChart />
                 <Stats />
               </div>
@@ -43,7 +43,7 @@ export default function Home() {
 
           <TabPanel>
             <Suspense fallback={<div>Loading...</div>}>
-              <div className="w-full items-center md:grid md:grid-cols-5 pb-8 pr-8 gap-x-10">
+              <div className="w-full items-center md:grid md:grid-cols-5 pb-8 gap-x-10">
                 <LineChart />
                 <Stats />
               </div>

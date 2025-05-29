@@ -4,7 +4,7 @@ import { workouts } from "@/data/workoutsMock";
 const CardioEntries = () => {
   return (
     <div className="hidden sm:block w-full col-span-1 relative lg:h-[70vh] h-[50vh] m-auto p-4 overflow-scroll">
-      <div className="p-4">
+      <div className="px-4">
         <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
           <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer">
             <p>Date</p>
@@ -15,7 +15,7 @@ const CardioEntries = () => {
           </div>
         </div>
       </div>
-      <ul>
+      <ul className="w-full m-auto p-4 bg-white overflow-y-auto">
         {workouts.map((workout, id) => (
           <li
             key={id}

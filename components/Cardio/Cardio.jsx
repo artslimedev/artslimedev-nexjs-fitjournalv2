@@ -8,7 +8,7 @@ import CardioEntryCard from "./CardioEntryCard";
 const Cardio = () => {
   return (
     <>
-      <div className="w-full items-center md:grid md:grid-cols-5 ml-3 pb-8 pr-8 gap-x-10">
+      <div className="w-full items-center md:grid md:grid-cols-5 pb-8 gap-x-10">
         <LineChart />
         <Stats />
       </div>

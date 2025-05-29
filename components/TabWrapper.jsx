@@ -1,8 +1,19 @@
 "use client";
 
 import { Tab } from "@headlessui/react";
+import { useState, useEffect } from "react";
 
 export function TabWrapper({ children }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="animate-pulse">Loading...</div>;
+  }
+
   return <Tab.Group defaultIndex={0}>{children}</Tab.Group>;
 }
 
@@ -19,5 +30,5 @@ export function TabPanels({ children }) {
 }
 
 export function TabPanel({ children }) {
-  return <Tab.Panel>{children}</Tab.Panel>;
+  return <Tab.Panel className="focus:outline-none">{children}</Tab.Panel>;
 }
