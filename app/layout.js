@@ -1,18 +1,18 @@
-import '@/styles/globals.css';
-import { Providers } from './providers/Providers';
-
-export const metadata = {
-  title: 'FitJournal - Track Your Fitness Journey',
-  description: 'Track your fitness progress with FitJournal',
-};
+/Nextjs/artslimedev-nexjs-fitjournalv2/app/layout.jsx
+import Sidebar from "@/components/Sidebar";
+import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
-        <Providers>{children}</Providers>
+      <body className="bg-gray-100">
+        <div className="flex">
+          <Sidebar />
+          <main className="w-full md:ml-20">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
 }
-

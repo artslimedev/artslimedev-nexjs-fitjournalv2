@@ -1,14 +1,15 @@
+import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
+      <body className="bg-gray-100">
+        <div className="flex">
+          <Sidebar />
+          <main className="w-full md:ml-20">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }

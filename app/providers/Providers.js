@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { SessionProvider } from 'next-auth/react';
-import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
-import { useSession } from 'next-auth/react';
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { SessionProvider } from "next-auth/react";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+import { useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 function Layout({ children }) {
   const { data: session, status } = useSession();
@@ -16,20 +16,17 @@ function Layout({ children }) {
     setMounted(true);
   }, []);
 
-  // Return null on first render to avoid hydration mismatch
   if (!mounted) {
     return null;
   }
-  
+
   return (
-    <div className="relative min-h-screen bg-gray-100">
+    <div className="flex h-screen">
       <Sidebar />
-      <div className="ml-20 min-h-screen">
+      <div className="flex-1 md:ml-20">
         <div className="p-6">
           <Header session={session} status={status} />
-          <div className="mt-4">
-            {children}
-          </div>
+          <div className="mt-4">{children}</div>
         </div>
       </div>
     </div>
@@ -43,4 +40,3 @@ export function Providers({ children }) {
     </SessionProvider>
   );
 }
-

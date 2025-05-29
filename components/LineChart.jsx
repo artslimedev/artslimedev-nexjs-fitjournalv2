@@ -1,16 +1,18 @@
+"use client";
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineElement,
-  CategoryScale, // x axis
-  LinearScale, // y axis
+  CategoryScale,
+  LinearScale,
   PointElement,
   Title,
   Legend,
   Tooltip,
 } from "chart.js";
+import { Line } from "react-chartjs-2";
 
+// Register ChartJS components
 ChartJS.register(
   LineElement,
   CategoryScale,
@@ -25,8 +27,12 @@ const defaultOptions = {
   plugins: {
     title: {
       display: true,
-      text: "Line Chart",
+      text: "Workout Progress",
       fullsize: true,
+    },
+    legend: {
+      display: true,
+      position: "top",
     },
   },
   scales: {
@@ -38,12 +44,15 @@ const defaultOptions = {
     y: {
       min: 0,
       max: 10,
+      grid: {
+        display: true,
+      },
     },
   },
   maintainAspectRatio: false,
   responsive: true,
   layout: {
-    padding: 30,
+    padding: 20,
   },
 };
 
@@ -51,57 +60,39 @@ const defaultChartData = {
   labels: ["", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"],
   datasets: [
     {
-      label: "Sales of the week",
+      label: "Distance (miles)",
       data: [null, 6, 3, 9, 5, 2.3, 7],
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-      borderColor: "rgb(255, 99, 132)",
-      tension: 0.1,
+      backgroundColor: "rgba(147, 51, 234, 0.5)", // Matches your purple theme
+      borderColor: "rgb(147, 51, 234)",
+      tension: 0.3,
+      fill: true,
     },
   ],
 };
 
 const LineChart = () => {
-  const [chartData, setChartData] = useState({ datasets: [] });
-  const [chartOptions, setChartOptions] = useState({});
+  const [mounted, setMounted] = useState(false);
+  const [chartData, setChartData] = useState(defaultChartData);
+  const [chartOptions, setChartOptions] = useState(defaultOptions);
 
   useEffect(() => {
+    setMounted(true);
     setChartData(defaultChartData);
     setChartOptions(defaultOptions);
-  });
+  }, []);
 
-  // const data = {
-  //     title: 'Line Chart',
-  //     labels: ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-  //     datasets: [{
-  //         label: 'Sales of the week',
-  //         data: [6,3,9,5,2.3,7],
-  //         backgroundColor: 'aqua',
-  //         borderColor: 'black',
-  //         pointBorderColor: 'aqua',
-  //         fill: true,
-  //         tension: 0
-  //         }
-  //     ]
-  // }
-
-  // const options = {
-  //     plugins: {
-  //         legend: true
-  //     },
-  //     scales: {
-  //         y: {
-  //             min: 1,
-  //             max: 11
-  //         }
-  //     }
-  // }
+  if (!mounted) {
+    return (
+      <div className="bg-white col-span-5 lg:col-span-4 min-h-[350px] sm:min-h-[542px] rounded-lg shadow h-full w-full flex items-center justify-center">
+        Loading chart...
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div className="bg-white col-span-5 lg:col-span-4 min-h-[350px] sm:min-h-[542px] sm:max-h-full sm:p-5 rounded-lg shadow h-full w-full">
-        <Line data={chartData} options={chartOptions} className=""></Line>
-      </div>
-    </>
+    <div className="bg-white col-span-5 lg:col-span-4 min-h-[350px] sm:min-h-[542px] sm:p-5 rounded-lg shadow h-full w-full">
+      <Line data={chartData} options={chartOptions} className="w-full h-full" />
+    </div>
   );
 };
 
