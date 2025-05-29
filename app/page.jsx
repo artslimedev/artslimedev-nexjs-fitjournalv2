@@ -1,91 +1,56 @@
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
+'use client';
 
-const inter = Inter({ subsets: ["latin"] });
+import { Tab } from "@headlessui/react";
+import Stats from "@/components/Stats";
+import LineChart from "@/components/LineChart";
+import CardioForm from "@/components/Cardio/CardioForm";
+import CardioEntries from "@/components/Cardio/CardioEntries";
+import CardioEntryCard from "@/components/Cardio/CardioEntryCard";
+import StrengthForm from "@/components/Strength/StrengthForm";
+import StrengthEntries from "@/components/Strength/StrengthEntries";
+import StrengthEntryCard from "@/components/Strength/StrengthEntryCard";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.jsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <Tab.Group>
+      <Tab.List className="flex gap-4 items-center justify-start">
+        <Tab
+          className="tab-btn text-lg bg-white shadow-lg shadow-black-500/10 px-4 py-2 cursor-pointer rounded-lg hover:bg-gray-400 focus:bg-purple-400"
         >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          Cardio
+        </Tab>
+        <Tab
+          className="tab-btn text-lg bg-white shadow-lg shadow-black-500/10 px-4 py-2 cursor-pointer rounded-lg hover:bg-gray-400 focus:bg-purple-400"
         >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
+          Strength
+        </Tab>
+      </Tab.List>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <Tab.Panels className="mt-6">
+        <Tab.Panel>
+          <div className="w-full items-center md:grid md:grid-cols-5 ml-3 pb-8 pr-8 gap-x-10">
+            <LineChart />
+            <Stats />
+          </div>
+          <div className="bg-white border rounded-lg shadow pt-3">
+            <CardioForm />
+            <CardioEntries />
+          </div>
+          <CardioEntryCard />
+        </Tab.Panel>
+
+        <Tab.Panel>
+          <div className="w-full items-center sm:grid sm:grid-cols-5 ml-3 pb-8 pr-8 gap-x-10">
+            <LineChart />
+            <Stats />
+          </div>
+          <div className="bg-white border rounded-lg shadow pt-3">
+            <StrengthForm />
+            <StrengthEntries />
+          </div>
+          <StrengthEntryCard />
+        </Tab.Panel>
+      </Tab.Panels>
+    </Tab.Group>
   );
 }

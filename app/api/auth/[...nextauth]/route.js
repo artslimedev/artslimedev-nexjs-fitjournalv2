@@ -1,11 +1,11 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
-
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@lib/mongodb";
 
-export default NextAuth({
+// Configuration object for NextAuth
+const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -13,14 +13,6 @@ export default NextAuth({
     }),
     EmailProvider({
       server: process.env.EMAIL_SERVER,
-      // server: {
-      //   host: process.env.EMAIL_SERVER_HOST,
-      //   port: process.env.EMAIL_SERVER_PORT,
-      //   auth: {
-      //     user: process.env.EMAIL_SERVER_USER,
-      //     pass: process.env.EMAIL_SERVER_PASSWORD
-      //   }
-      // },
       from: process.env.EMAIL_FROM,
     }),
     // ...add more providers here
@@ -28,4 +20,18 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise, {
     databaseName: "nextauthjs",
   }),
-});
+  callbacks: {
+    session: ({ session, user }) => ({
+      ...session,
+      user: {
+        ...session.user,
+        id: user.id,
+      },
+    }),
+  },
+};
+
+// Export handlers for GET and POST requests
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
+
